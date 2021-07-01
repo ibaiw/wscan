@@ -1,0 +1,1 @@
+from exphub.yongyou.YongYouScan import YongYouScan
