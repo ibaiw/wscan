@@ -1,6 +1,6 @@
 # J2ExpSuite 漏洞检测框架
 ## 说明
-本来要自己写个脚本存放poc，发现有大佬已经写了个轮子，使用J2ExpSuite，后期添加POC
+本来要自己写个脚本存放poc，发现有大佬已经写了个轮子(来源https://github.com/JE2Se/J2ExpSuite)，使用J2ExpSuite，后期添加POC
 
 
 
