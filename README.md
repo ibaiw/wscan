@@ -1,31 +1,24 @@
-# J2ExpSuite 漏洞检测框架V1.0.1
+# J2ExpSuite 漏洞检测框架
 ## 说明
-这是一个以python3编写的的漏洞检测框架，可自定义，添加poc，exp，定向检测，初衷是为了什么呢？我想搞一个全面一点的漏洞检测框架，输入一个url，在选择检测漏洞类型，直接出结果，还要满足POC可集成，简单编写就能加载进去。主要是为了快速的检测漏洞高的存在，POC主要类型为RCE，读文件，注入漏洞，文件上传等类型漏洞，主要为了撕口子。于是我花了一天的时间搞出了这个框架，初步的满足了我的想法，指定参数进行漏洞检测。**添加POC，可直接按照POC编写规范，编写后直接放入对应的文件夹内，无需其他操作，可自行加载配置**。
+本来要自己写个脚本存放poc，发现有大佬已经写了个轮子，使用J2ExpSuite，后期添加POC
 
-{生活}{POC} orz
 
-先来几个截图看看工具样子
-## 版本里程碑
-版本 |  更新内容 | 更新时间
--|-|-
-V1.0.0|主题框架上传，无POC版|2020年06月1日
-V1.0.1|更新部分BUG，简化POC，更新POC编写规范|2020年06月23日
-
-## 脚本展示
 
 ### 脚本启动
-![image-20191128110919811](./doc/Xnip2020-06-11_12-43-27.jpg)
 
-## 脚本功能菜单（持续更新中）
-![image-20191128110919812](./doc/Xnip2020-06-11_12-43-54.jpg)
+![image-20210701155336769](README.assets/image-20210701155336769.png)
 
-## 运行截图
-![image-20191128110919814](./doc/Xnip2020-06-11_13-20-35.jpg)
+### 部分漏洞利用
 
-选中某个参数后，程序会自动加载目标参数路径下的所有py脚本，加载后会运行，上面的图片是已phpstudy举例的，加载完后会自动进行检测。
+![image-20210701155222541](README.assets/image-20210701155222541.png)
 
-## 主题 
-老样子，Windows没有皮肤主题，为什么没适配Windows，这是鼓励大家好好的工作，努力赚钱买苹果。
+![image-20210701155234735](README.assets/image-20210701155234735.png)
+
+![image-20210701155245328](README.assets/image-20210701155245328.png)
+
+![image-20210701155255259](README.assets/image-20210701155255259.png)
+
+
 
 ## 目前支持漏洞
 
@@ -36,7 +29,7 @@ Phpstudy | Phpstudy后门漏洞 | 2020年06月11日
   先这样|POC写完了再|一起放上来~
 
 
-之前写的就先删除了，每天更新一个两个的也没意思，我先自己写
+
 
 ## POC编写规范
 
@@ -50,16 +43,18 @@ import logging
 from lib.Urldeal import umethod
 
 def XXX_POC(Url): #必须与脚本名称相同
-    scheme, url, port = umethod(Url)
-    #------------POC部分，按需更改--------------
+    scheme, url, port = umethod(Url) #URL处理，拆分初协议
+    
+    #-----------POC部分，下，按需更改--------------------
+    urldata = scheme + "://" + url + ':' + str(port) + '/login.action
+    
     try:
-      urldata = scheme + "://" + url + ':' + str(port) + '/login.action'
-      if "漏洞判断成功条件":
-    #------------POC部分，按需更改--------------
-          print(Vcolors.RED +"[!] 存在【漏洞名称】漏洞->版本号:什么漏洞\r" + Vcolors.ENDC)
+        if "漏洞判断成功条件":
+    #-----------POC部分，上，输出部分--------------------
+            print(Vcolors.RED +"[!] 存在【漏洞名称】漏洞->版本号:什么漏洞\r" + Vcolors.ENDC)
     except:
         logging.error("【脚本名称】脚本出现异常")
-        
+
 ```
 
 函数名称需要与脚本名称一致，编写后直接将POC脚本放入对应的路径下就行
@@ -75,7 +70,7 @@ def XXX_POC(Url): #必须与脚本名称相同
  if args.oa:
     print(Vcolors.CYAN + "[+] 测试的模块内容为：" + Vcolors.ENDC + Vcolors.RED + "OA相关漏洞检测" + Vcolors.ENDC)
     OAScan(url)
-```
+ ```
 #### 目录
 在exphub内创建oa目录（建议小写统一规范）内部新建```__init__.py```，以及```OAScan.py```
 
@@ -118,28 +113,6 @@ from exphub.oa.OAScan import OAScan  #导入文件名称，导入函数名称
 from exphub.oa import *  #导入函数名称
 ```
 
-## 注意
 
-没有放pip依赖列表，随运行，随安装吧~（没错，我是真的懒）
 
-## 项目地址
 
-项目地址：https://github.com/JE2Se/J2ExpSuite
-
-我还想白嫖几个star，说不定哪天我更新POC呢~
-
-## 项目愿景
-二期：
-
-后期会加入到指纹识别
-
-会加入差不多的POC
-
-# 共同维护
-大家如果有什么好的POC也可以编写玩发送给我，我们共同与维护这个项目
-
-# 项目支持
-
-感谢|以下|人员|对本|程序|的贡|献。
--|-|-|-|-|-|-
-子杰|junsec|Seek
