@@ -22,11 +22,17 @@
 
 ## 目前支持漏洞
 
-框架/组件/中间件 |  漏洞名称 | 更新时间
--|-|-
-Phpstudy | Phpstudy后门漏洞 | 2020年06月11日 
-  ~|默认口令/空口令 | 2020年06月12日 
-  先这样|POC写完了再|一起放上来~
+| 框架/组件/中间件 |
+| ---------------- |
+| Phpstudy         |
+| jellyfin         |
+| tianqing         |
+| weblogic         |
+| fanwei           |
+| yongyou          |
+| qizhi            |
+| yiyou            |
+| zhiyuan          |
 
 
 
@@ -112,7 +118,6 @@ from exphub.oa.OAScan import OAScan  #导入文件名称，导入函数名称
 ```python
 from exphub.oa import *  #导入函数名称
 ```
-
 
 
 
