@@ -1,3 +1,4 @@
+**后面会用go重构，正在学习go中～**
 # J2ExpSuite 漏洞检测框架
 ## 说明
 本来要自己写个脚本存放poc，发现有大佬已经写了个[J2ExpSuite](https://github.com/JE2Se/J2ExpSuite)，后期添加POC
