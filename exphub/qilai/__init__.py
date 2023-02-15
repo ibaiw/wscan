@@ -1,0 +1,1 @@
+from exphub.qilai.QiLaiScan import QiLaiScan

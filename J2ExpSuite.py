@@ -1,15 +1,6 @@
 # encoding: utf-8
-'''
-@Version:   V1.0
-@Author:    JE2Se
-@Contact:   admin@je2se.com
-@Website:   https://www.je2se.com
-@Github:    https://github.com/JE2Se/
-@Time:  2020/6/10 10:53
-@File:  J2ExpSuite.py
-@Desc:  主文件time
-'''
 
+import multiprocessing
 import sys
 from lib import *
 from exphub import *
@@ -47,6 +38,19 @@ if __name__ == '__main__':
     parser.add_argument("-yy", "--yiyou", help='添加 -yiyou 参数，将进行亿邮漏洞检测  ~~', action='store_true')
     parser.add_argument("-yu", "--yongyou", help='添加 -yongyou 参数，将进行用友漏洞检测  ~~', action='store_true')
     parser.add_argument("-fw", "--fanwei", help='添加 -fanwei 参数，将进行泛微漏洞检测  ~~', action='store_true')
+    parser.add_argument("-td", "--tongda", help='添加 -tongda 参数，将进行通达漏洞检测  ~~', action='store_true')
+    parser.add_argument("-fr", "--fanruan", help='添加 -fanruan 参数，将进行帆软漏洞检测  ~~', action='store_true')
+    parser.add_argument("-ht", "--huatian", help='添加 -huatian 参数，将进行华天动力漏洞检测  ~~', action='store_true')
+    parser.add_argument("-jh", "--jinhe", help='添加 -jinhe 参数，将进行金和漏洞检测  ~~', action='store_true')
+    parser.add_argument("-ll", "--lanling", help='添加 -lanling 参数，将进行蓝凌漏洞检测  ~~', action='store_true')
+    parser.add_argument("-ql", "--qilai", help='添加 -qilai 参数，将进行启莱漏洞检测  ~~', action='store_true')
+    parser.add_argument("-xd", "--xindian", help='添加 -xidian 参数，将进行新点漏洞检测  ~~', action='store_true')
+    parser.add_argument("-ym", "--yimi", help='添加 -yimi 参数，将进行一米漏洞检测  ~~', action='store_true')
+    parser.add_argument("-wh", "--wanhu", help='添加 -wanhu 参数，将进行万户漏洞检测  ~~', action='store_true')
+    parser.add_argument("-hf", "--hongfan", help='添加 -hongfan 参数，将进行红帆漏洞检测  ~~', action='store_true')
+    parser.add_argument("-jd", "--jindie", help='添加 -jindie 参数，将进行金蝶漏洞检测  ~~', action='store_true')
+    parser.add_argument("-zx", "--zhixiang", help='添加 -zhixiang 参数，将进行致翔漏洞检测  ~~', action='store_true')
+    parser.add_argument('-f', "--file",  help='Target Url File', type=argparse.FileType('r'))
     args = parser.parse_args()
     params = vars(args)
 
@@ -83,7 +87,6 @@ if __name__ == '__main__':
         if args.jellyfin:
             print(Vcolors.CYAN + "[+] 测试的模块内容为：" + Vcolors.ENDC + Vcolors.RED + "jellyfin漏洞检测" + Vcolors.ENDC)
             JellyfinScan(url)
-        
         if args.tianqing:
             print(Vcolors.CYAN + "[+] 测试的模块内容为：" + Vcolors.ENDC + Vcolors.RED + "天擎漏洞检测" + Vcolors.ENDC)
             TianqingScan(url)
@@ -96,11 +99,45 @@ if __name__ == '__main__':
             YiyouScan(url)
         if args.yongyou:
             print(Vcolors.CYAN + "[+] 测试的模块内容为：" + Vcolors.ENDC + Vcolors.RED + "  用友漏洞检测" + Vcolors.ENDC)
-            YongYoScan(url)
-            
+            YongYouScan(url)
         if args.fanwei:
             print(Vcolors.CYAN + "[+] 测试的模块内容为：" + Vcolors.ENDC + Vcolors.RED + "  泛微漏洞检测" + Vcolors.ENDC)
             FanWeiScan(url)
-            
-            
+        if args.tongda:
+            print(Vcolors.CYAN + "[+] 测试的模块内容为：" + Vcolors.ENDC + Vcolors.RED + "  通达漏洞检测" + Vcolors.ENDC)
+            TdScan(url)
+        if args.fanruan:
+            print(Vcolors.CYAN + "[+] 测试的模块内容为：" + Vcolors.ENDC + Vcolors.RED + "  帆软漏洞检测" + Vcolors.ENDC)
+            FanRuanScan(url)
+        if args.huatian:
+            print(Vcolors.CYAN + "[+] 测试的模块内容为：" + Vcolors.ENDC + Vcolors.RED + "  华天动力漏洞检测" + Vcolors.ENDC)
+            HuaTianScan(url)
+        if args.jinhe:
+            print(Vcolors.CYAN + "[+] 测试的模块内容为：" + Vcolors.ENDC + Vcolors.RED + "  金和漏洞检测" + Vcolors.ENDC)
+            HuaTianScan(url)
+        if args.lanling:
+            print(Vcolors.CYAN + "[+] 测试的模块内容为：" + Vcolors.ENDC + Vcolors.RED + "  蓝凌漏洞检测" + Vcolors.ENDC)
+            LanLingScan(url)
+        if args.qilai:
+            print(Vcolors.CYAN + "[+] 测试的模块内容为：" + Vcolors.ENDC + Vcolors.RED + "  启莱漏洞检测" + Vcolors.ENDC)
+            QiLaiScan(url)
+        if args.xindian:
+            print(Vcolors.CYAN + "[+] 测试的模块内容为：" + Vcolors.ENDC + Vcolors.RED + "  新点漏洞检测" + Vcolors.ENDC)
+            XinDianScan(url)
+        if args.yimi:
+            print(Vcolors.CYAN + "[+] 测试的模块内容为：" + Vcolors.ENDC + Vcolors.RED + "  一米漏洞检测" + Vcolors.ENDC)
+            YiMiScan(url)
+        if args.wanhu:
+            print(Vcolors.CYAN + "[+] 测试的模块内容为：" + Vcolors.ENDC + Vcolors.RED + "  万户漏洞检测" + Vcolors.ENDC)
+            WanHuScan(url)
+        if args.hongfan:
+            print(Vcolors.CYAN + "[+] 测试的模块内容为：" + Vcolors.ENDC + Vcolors.RED + "  红帆漏洞检测" + Vcolors.ENDC)
+            HongFanScan(url)
+        if args.jindie:
+            print(Vcolors.CYAN + "[+] 测试的模块内容为：" + Vcolors.ENDC + Vcolors.RED + "  金蝶漏洞检测" + Vcolors.ENDC)
+            JinDieScan(url)
+        if args.zhixiang:
+            print(Vcolors.CYAN + "[+] 测试的模块内容为：" + Vcolors.ENDC + Vcolors.RED + "  致翔漏洞检测" + Vcolors.ENDC)
+            ZhiXiangScan(url)
+
         print(Vcolors.CYAN + "[.]-----------扫描结束，感谢使用----------" + Vcolors.ENDC)

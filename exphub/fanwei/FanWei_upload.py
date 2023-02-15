@@ -31,7 +31,7 @@ def FanWei_upload(Url):
             if response.status_code == 403:
                 print("[-] 文件上传成功，但访问被拦截！")
         else:
-            print(Vcolors.RED +"[!] 不存在文件上传\r" + Vcolors.ENDC)
+            print(Vcolors.WARNING +"[x] 不存在泛微OA V9 任意文件上传漏洞\r" + Vcolors.ENDC)
             
     except :    
         logging.error("FanWei_upload脚本出现异常")

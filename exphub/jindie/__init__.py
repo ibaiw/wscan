@@ -1,0 +1,1 @@
+from exphub.jindie.JinDieScan import JinDieScan

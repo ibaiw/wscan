@@ -1,0 +1,1 @@
+from exphub.xindian.XinDianScan  import XinDianScan

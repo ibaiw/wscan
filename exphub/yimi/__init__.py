@@ -1,0 +1,1 @@
+from exphub.yimi.YiMiScan import YiMiScan

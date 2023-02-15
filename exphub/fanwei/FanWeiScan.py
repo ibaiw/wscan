@@ -18,5 +18,5 @@ def FanWeiScan(url):  #函数名与文件名相同，建议为大写字母加上
             defclass += "(\'{}\')".format(url)
             exec(defclass)
             
-    except:        
+    except Exception as e:
         logging.error("FanWeiScan脚本出现异常")  #修改异常监控名称

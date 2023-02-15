@@ -9,12 +9,7 @@
 @File:  __init__.py.py
 @Desc:
 '''
-from exphub.struts2 import *
-from exphub.thinkphp import *
-from exphub.weblogic import *
-from exphub.shiro import *
-from exphub.spring import *
-from exphub.conference import *
+
 from exphub.tomcat import *
 from exphub.phpstudy import *
 from exphub.jellyfin import *
@@ -24,3 +19,15 @@ from exphub.yiyou import *
 from exphub.qizhi import * 
 from exphub.yongyou import *
 from exphub.fanwei import *
+from exphub.tongda import *
+from exphub.fanruan import *
+from exphub.huatian import *
+from exphub.jinhe import *
+from exphub.lanling import *
+from exphub.qilai import *
+from exphub.xindian import *
+from exphub.yimi import *
+from exphub.wanhu import *
+from exphub.hongfan import *
+from exphub.jindie import *
+from exphub.zhixiang import *

@@ -23,12 +23,12 @@ def PhpstudyScan(url):
             if os.path.join(file) != "__init__.py" and os.path.join(file) != "PhpstudyScan.py":
                 dlist.append(os.path.join(os.path.splitext(file)[0]))
     ONLoad(dlist)
-    # try:
-    for defclass in dlist:
-        print(Vcolors.OKGREEN + "[?] 正在执行" + defclass + "脚本检测.......\r" + Vcolors.ENDC)
-        exec("from exphub.phpstudy.{0} import {1}".format(defclass,defclass))
-        defclass += "(\'{}\')".format(url)
-        exec(defclass)
-    # except:
-    #     print(dlist)
-    #     logging.error("PhpstudyScan脚本出现异常")
+    try:
+        for defclass in dlist:
+            print(Vcolors.OKGREEN + "[?] 正在执行" + defclass + "脚本检测.......\r" + Vcolors.ENDC)
+            exec("from exphub.phpstudy.{0} import {1}".format(defclass,defclass))
+            defclass += "(\'{}\')".format(url)
+            exec(defclass)
+    except:
+        
+        logging.error("PhpstudyScan脚本出现异常")

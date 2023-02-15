@@ -23,7 +23,7 @@ def FanWei_sql(Url):
             print("[-]  正在查询sysadmin密码信息.......")
             print(f"[-]  用户: sysadmin    密码MD5: \033[33m{res.text.strip()}\033[0m")
         else:
-            print(Vcolors.RED +"[!] 不存在漏洞\r" + Vcolors.ENDC)
+            print(Vcolors.WARNING +"[!] 不存在V8SQL注入\r" + Vcolors.ENDC)
     except Exception as e:
         print(f"[0]  目标系统: {url} 存在未知错误！\n",e)
         logging.error("FanWei_sql脚本出现异常")
