@@ -24,7 +24,7 @@ if __name__ == '__main__':
     #脚本执行帮助部分
     print(Vcolors.PURPLE + "\t~请输入 -h 获取命令帮助~" + "\n" + Vcolors.ENDC +Vcolors.OKBLUE)
     parser.add_argument("-u" , "--url",type=str, help="填写待测试的URL链接~~(必填)")
-    arser.add_argument("-tm" , "--tomcat", help='添加 -tomcat 参数，将进行Tomcat漏洞检测  ~~', action='store_true')
+    parser.add_argument("-tm" , "--tomcat", help='添加 -tomcat 参数，将进行Tomcat漏洞检测  ~~', action='store_true')
     parser.add_argument("-ps", "--phpstudy", help='添加 -phpstudy 参数，将进行PhpStudy后门漏洞检测  ~~', action='store_true')
     parser.add_argument("-je", "--jellyfin", help='添加 -jellyfin 参数，将进行jellyfin漏洞检测  ~~', action='store_true')
     parser.add_argument("-tq", "--tianqing", help='添加 -tianqing 参数，将进行天擎漏洞检测  ~~', action='store_true')

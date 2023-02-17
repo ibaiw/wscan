@@ -16,7 +16,6 @@ from exphub.jellyfin import *
 from exphub.tianqing import * 
 from exphub.zhiyuan import * 
 from exphub.yiyou import * 
-from exphub.qizhi import * 
 from exphub.yongyou import *
 from exphub.fanwei import *
 from exphub.tongda import *
